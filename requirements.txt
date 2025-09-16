@@ -1,2 +1,4 @@
 django
 django-bootstrap5
+django-crispy-forms
+fontawesomefree
