@@ -37,15 +37,9 @@
                                 <h5>Book from only £75 / Day!</h5>
                             </div>
                         </div>
-                        {% if user.is_authenticated %}
-                            <a class="btn btn-info" href="{% url 'booking' %}">
-                                <i class="nf nf-md-book_edit"></i>  Book Now
-                            </a>
-                        {% else %}
-                            <a class="btn btn-info" href="{% url 'login' %}">
-                                <i class="nf nf-md-book_edit"></i>  Book Now
-                            </a>
-                        {% endif %}
+                        <a class="btn btn-info" href="{% url 'hotel' %}">
+                            <i class="nf nf-md-book_edit"></i>  Book Now
+                        </a>
                     </div>
                     <div class="box card bg-primary flex-fill mb-3 text-white">
                         <div class="card-header">
@@ -54,18 +48,12 @@
                         <div class="d-flex w-100">
                             <img class="img-fluid w-25" src="{% static 'images/monkey.jpeg' %}">
                             <div class="card-title d-flex flex-column m-1">
-                                <h5>Book from only £75 / Day!</h5>
+                                <h5>Book from only £20!</h5>
                             </div>
                         </div>
-                        {% if user.is_authenticated %}
-                            <a class="btn btn-info" href="{% url 'booking' %}">
-                                <i class="nf nf-md-book_edit"></i>  Book Now
-                            </a>
-                        {% else %}
-                            <a class="btn btn-info" href="{% url 'login' %}">
-                                <i class="nf nf-md-book_edit"></i>  Book Now
-                            </a>
-                        {% endif %}
+                        <a class="btn btn-info" href="{% url 'day' %}">
+                            <i class="nf nf-md-book_edit"></i>  Book Now
+                        </a>
                     </div>
                 </div>
             </div>

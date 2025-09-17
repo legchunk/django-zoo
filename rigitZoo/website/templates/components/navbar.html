@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+<nav class="navbar fixed-top navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center" href="{% url '' %}">
         <img src="{% static 'images/logo.png' %}" alt="Rigit Zoo Icon" style="height: 22px; width: auto;">
@@ -9,6 +9,15 @@
     </button>
     <div class="navbar-collapse collapse" id="navbarColor02" style="">
       <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="nf nf-fa-book"></i>  Booking
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'hotel' %}"><i class="nf nf-fa-hotel"></i>  Hotel</a>
+                <a class="dropdown-item" href="{% url 'day' %}"><i class="nf nf-fa-ticket"></i>  Day ticket</a>
+            </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">
               <i class="nf nf-fa-info_circle"></i>  About

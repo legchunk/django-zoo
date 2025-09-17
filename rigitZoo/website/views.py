@@ -87,5 +87,9 @@ def user_logout(request):
     return redirect('')
 
 @login_required(login_url="login")
-def booking(request):
-    return redirect('')
+def booking_hotel(request):
+    return render(request, 'pages/booking/hotel.html')
+
+@login_required(login_url="login")
+def booking_day(request):
+    return render(request, 'pages/booking/day.html')
