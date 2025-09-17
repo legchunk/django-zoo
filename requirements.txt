@@ -1,4 +1,6 @@
 django
-django-bootstrap5
+django-bootstrap-v5
 django-crispy-forms
 fontawesomefree
+crispy-bootstrap5
+requests
