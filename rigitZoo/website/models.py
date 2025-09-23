@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class HotelBooking(models.Model):
@@ -12,3 +13,8 @@ class HotelBooking(models.Model):
     hotel_booking_oap = models.IntegerField(default=0)
     hotel_total_cost = models.FloatField(default=0)
     hotel_points = models.IntegerField(default=0)
+
+class ZooUser(AbstractUser):
+    points = models.IntegerField(default=0)
+    address = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=14, blank=True)

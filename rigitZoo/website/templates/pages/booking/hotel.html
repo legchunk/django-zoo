@@ -1,1 +1,18 @@
 {% extends 'pages/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card text-white bg-dark mb-3 m-5 mx-auto" style="max-width:40rem;">
+    <div class="card-header">Book your stay!</div>
+    <div class="card-body">
+        <form action="{% url 'hotel' %}" method="POST" autocomplete="off">
+            {% csrf_token %} {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-primary w-100 btn-block p-2">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>  Book
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
