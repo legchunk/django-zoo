@@ -1,8 +1,8 @@
 {% extends 'pages/base.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="card text-white bg-dark mb-3 m-5 mx-auto" style="max-width:40rem;">
-    <div class="card-header">Log into your account</div>
+<div class="card mb-3 m-5 mx-auto rounded" style="max-width:40rem;" id="login-card">
+    <div class="card-header text-center p-0 fs-2"><b>Log In</b></div>
     <div class="card-body">
         <form method="POST" autocomplete="off">
             {% csrf_token %} {{form|crispy}}

@@ -1,3 +1,22 @@
 .form-text {
     color: #ffffff;
 }
+
+.navbar {
+    background-color: #93B259;
+    color: #5C5A72;
+}
+
+.dropdown-menu {
+    background-color: #1e2326;
+    color: #d3c6aa;
+}
+
+.card-header{
+    background-color: #374145;
+}
+
+#login-card {
+    background-color: #1e2326;
+    color: #d3c6aa;
+}
