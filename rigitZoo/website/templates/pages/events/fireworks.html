@@ -1,0 +1,77 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<div class="content m-5">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner fw-bold">
+            <div class="carousel-item active">
+                <img src="{% static 'images/fireworks_event/banner.png' %}" class="d-block" alt="Fireworks showcase banner">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Bonfire Night Celebration</h1>
+                    <p class="fs-4">Join us for a magical Bonfire Night with spectacular fireworks and wildlife encounters</p>
+                    <a class="btn btn-success fs-5 w-25" href="{% url 'booking' %}" >Get Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex flex-column align-items-center gap-4">
+                
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'images/fireworks_event/bonfire.jpg' %}" class="img-fluid rounded-start object-fit-cover" style="height: 200px; width: 100%;" alt="Bonfire">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Traditional Bonfire</h5>
+                                    <p class="card-text">Gather around our spectacular bonfire as we celebrate Guy Fawkes Night with traditional activities and warm refreshments.</p>
+                                </div>
+                                <p class="card-text"><small>Starting at 6:00 PM</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body text-end d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Grand Fireworks Display</h5>
+                                    <p class="card-text">Watch in awe as our professional fireworks display lights up the night sky over the zoo grounds with colorful explosions.</p>
+                                </div>
+                                <p class="card-text"><small>Main show at 8:00 PM</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{% static 'images/fireworks_event/fireworks-card.png' %}" class="img-fluid rounded-end object-fit-cover" style="height: 200px; width: 100%;" alt="Fireworks Display">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'images/fireworks_event/food.png' %}" class="img-fluid rounded-start object-fit-cover" style="height: 200px; width: 100%;" alt="Hot Food">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Food & Refreshments</h5>
+                                    <p class="card-text">Warm up with hot chocolate, mulled cider, jacket potatoes, and traditional bonfire treats available throughout the evening.</p>
+                                </div>
+                                <p class="card-text"><small>Available all evening</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

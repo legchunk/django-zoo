@@ -6,12 +6,20 @@ from django.conf import settings
 import requests
 from .forms import HotelBookingForm, DayBookingForm, LoginForm, CreateUserForm
 
-# Create your views here.
 def home(request):
     return render(request, 'pages/index.html')
 
 def booking(request):
     return render(request, 'pages/booking.html')
+
+def about(request):
+    return render(request, 'pages/about.html')
+
+def fireworks(request):
+    return render(request, 'pages/events/fireworks.html')
+
+def santa(request):
+    return render(request, 'pages/events/santa.html')
 
 def weather_data():
     key = settings.MY_API_KEY
@@ -43,9 +51,6 @@ def weather_data():
     context = {'data': data}
 
     return context
-
-def about(request):
-    return render(request, 'pages/about.html')
 
 def register(request):
     form = CreateUserForm()
