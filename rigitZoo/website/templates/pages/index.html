@@ -1,63 +1,29 @@
 {% extends 'pages/base.html' %}
 {% load static %}
+{% block head_extra %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 {% block content %}
-<div class="content w-50 m-4 mb-3 border rounded mx-auto card text-white bg-dark">
-    <div class="card-header">
-        <h1>Rigit Zoo</h1>
-    </div>
-    <div class="card-body">
-        <div class="container py-4">
-            <div class="row align-items-stretch">
-                <!--Weather box-->
-                <div class="col-md-6 d-flex text-break">
-                    <div class="box flex-fill">
-                        {% if data %}
-                            <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="Weather Icon">
-                            <hr>
-                            <p>Location: {{data.location}}</p>
-                            <p>Weather: {{data.weather}}</p>
-                            <p>Temperature: {{data.temperature}}°C</p>
-                            <p>Min: {{data.min}}°C</p>
-                            <p>Max: {{data.max}}°C</p>
-                        {% else %}
-                            <i class="nf nf-fa-warning"></i>  <p>Failed to retrieve weather data!</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!--booking and day ticket boxes-->
-                <div class="col-md-6 d-flex flex-column">
-                    <div class="box card bg-primary flex-fill mb-3 text-white">
-                        <div class="card-header">
-                            <h4><i class="nf nf-md-book_edit"></i>  Hotel Booking</h4>
-                        </div>
-                        <div class="d-flex w-100">
-                            <img class="img-fluid w-25" src="{% static 'images/raccoon.jpeg' %}">
-                            <div class="card-title d-flex flex-column m-1">
-                                <h5>Book from only £75 / Day!</h5>
-                            </div>
-                        </div>
-                        <a class="btn btn-info" href="{% url 'hotel' %}">
-                            <i class="nf nf-md-book_edit"></i>  Book Now
-                        </a>
-                    </div>
-                    <div class="box card bg-primary flex-fill mb-3 text-white">
-                        <div class="card-header">
-                            <h4><i class="nf nf-fa-ticket"></i>  Day Ticket</h4>
-                        </div>
-                        <div class="d-flex w-100">
-                            <img class="img-fluid w-25" src="{% static 'images/monkey.jpeg' %}">
-                            <div class="card-title d-flex flex-column m-1">
-                                <h5>Book from only £20!</h5>
-                            </div>
-                        </div>
-                        <a class="btn btn-info" href="{% url 'day' %}">
-                            <i class="nf nf-md-book_edit"></i>  Book Now
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="content">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="{% static 'images/banner/lions.png' %}" class="d-block" alt="Rigit Zoo showcase banner">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static 'images/banner/fireworks.png' %}" class="d-block" alt="Fireworks event banner">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static 'images/banner/santa.png' %}" class="d-block" alt="Santa's workshop event banner">
         </div>
     </div>
-</div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div></div>
 {% endblock %}
