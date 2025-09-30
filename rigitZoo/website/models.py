@@ -14,7 +14,19 @@ class HotelBooking(models.Model):
     hotel_total_cost = models.FloatField(default=0)
     hotel_points = models.IntegerField(default=0)
 
+class DayBooking(models.Model):
+    booking_id = models.AutoField(primary_key=True, editable=False)
+    day_booking_date_of_purchase = models.DateField(auto_now_add=True)
+    day_booking_date = models.DateField()
+    day_booking_adults = models.IntegerField(default=0)
+    day_booking_children = models.IntegerField(default=0)
+    day_booking_oap = models.IntegerField(default=0)
+    day_total_cost = models.FloatField(default=0)
+    day_points = models.IntegerField(default=0)
+
 class ZooUser(AbstractUser):
     points = models.IntegerField(default=0)
     address = models.CharField(max_length=200, blank=True)
-    phone = models.CharField(max_length=14, blank=True)
+    phone = models.CharField(max_length=14)
+    date_of_birth = models.DateField()
+    full_name = models.CharField(max_length=100)

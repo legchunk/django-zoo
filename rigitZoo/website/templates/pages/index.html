@@ -4,26 +4,61 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block content %}
-<div class="content">
+<div class="content m-5">
     <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-        <img src="{% static 'images/banner/lions.png' %}" class="d-block" alt="Rigit Zoo showcase banner">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="{% static 'images/banner/lions.png' %}" class="d-block" alt="Rigit Zoo showcase banner">
+            </div>
+            <div class="carousel-item">
+            <img src="{% static 'images/banner/fireworks.jpg' %}" class="d-block" alt="Fireworks event banner">
+            </div>
+            <div class="carousel-item">
+            <img src="{% static 'images/banner/santa.jpg' %}" class="d-block" alt="Santa's workshop event banner">
+            </div>
         </div>
-        <div class="carousel-item">
-        <img src="{% static 'images/banner/fireworks.png' %}" class="d-block" alt="Fireworks event banner">
-        </div>
-        <div class="carousel-item">
-        <img src="{% static 'images/banner/santa.png' %}" class="d-block" alt="Santa's workshop event banner">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div id="cards" class="m-5">
+        <div class="row justify-content-center mx-0">
+            <div class="col-md-4 mb-4 px-2">
+                <div class="card h-100 bg-dark text-white">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/zoo-entrance.jpg' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Zoo Entrance">
+                        <h5 class="card-title">Book a Day Visit</h5>
+                        <p class="card-text">Experience our amazing animals and attractions for a day full of adventure and learning.</p>
+                        <a href="{% url 'day' %}" class="btn btn-secondary">Book Day Visit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 px-2">
+                <div class="card h-100 bg-dark text-white">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/hotel.webp' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Hotel">
+                        <h5 class="card-title">Hotel Booking</h5>
+                        <p class="card-text">Stay overnight in our comfortable accommodations and wake up to the sounds of nature.</p>
+                        <a href="{% url 'hotel' %}" class="btn btn-secondary">Book Hotel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 px-2">
+                <div class="card h-100 bg-dark text-white">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/monkey.jpeg' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Monkey">
+                        <h5 class="card-title">About Us</h5>
+                        <p class="card-text">Learn more about our conservation efforts, animal care, and the history of Rigit Zoo.</p>
+                        <a href="{% url 'about' %}" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div></div>
+</div>
 {% endblock %}
