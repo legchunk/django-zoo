@@ -4,12 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 import requests
-from .forms import HotelBookingForm, LoginForm, CreateUserForm
+from .forms import HotelBookingForm, DayBookingForm, LoginForm, CreateUserForm
 
 # Create your views here.
 def home(request):
-    context = weather_data()
-    return render(request, 'pages/index.html', context=context)
+    return render(request, 'pages/index.html')
+
+def booking(request):
+    return render(request, 'pages/booking.html')
 
 def weather_data():
     key = settings.MY_API_KEY
@@ -129,4 +131,29 @@ def booking_hotel(request):
 
 @login_required(login_url="login")
 def booking_day(request):
-    return render(request, 'pages/booking/day.html')
+    form = DayBookingForm()
+    if request.method == "POST":
+        form = DayBookingForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            
+            # Calculate total cost
+            day_total_cost = int(obj.day_booking_adults) * 25 \
+                + int(obj.day_booking_children) * 15 \
+                + int(obj.day_booking_oap) * 20
+            
+            day_points = int(day_total_cost / 10)
+            
+            obj.day_total_cost = day_total_cost
+            obj.day_points = day_points
+            # obj.day_user_id = request.user  # Add this if you have user relation
+            
+            obj.save()
+            
+            messages.success(request, "Day pass booked successfully!")
+            return redirect('')
+        else:
+            messages.error(request, "There was a problem with your booking. Please try again.")
+    
+    context = {'form': form}
+    return render(request, 'pages/booking/day.html', context=context)

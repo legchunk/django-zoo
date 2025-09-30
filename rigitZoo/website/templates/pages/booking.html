@@ -1,0 +1,57 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mb-5">
+            <h1 class="display-4">Choose Your Experience</h1>
+            <p class="lead">Select the perfect option for your visit to Rigit Zoo</p>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 bg-dark text-white">
+                <div class="card-body text-center d-flex flex-column">
+                    <img src="{% static 'images/zoo-entrance.jpg' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Zoo Entrance">
+                    <h3 class="card-title">Day Pass</h3>
+                    <p class="card-text flex-grow-1">Experience our amazing animals and attractions for a day full of adventure and learning. Perfect for families and groups looking for an exciting day out.</p>
+                    <div class="mt-auto">
+                        <h4 class="text-success mb-3">From £25 per person</h4>
+                        <a href="{% url 'day' %}" class="btn btn-success btn-lg w-100">Book Day Pass</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 bg-dark text-white">
+                <div class="card-body text-center d-flex flex-column">
+                    <img src="{% static 'images/hotel.webp' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Hotel">
+                    <h3 class="card-title">Hotel Stay</h3>
+                    <p class="card-text flex-grow-1">Stay overnight in our comfortable accommodations and wake up to the sounds of nature. Includes zoo access and breakfast for the ultimate wildlife experience.</p>
+                    <div class="mt-auto">
+                        <h4 class="text-success mb-3">From £120 per night</h4>
+                        <a href="{% url 'hotel' %}" class="btn btn-success btn-lg w-100">Book Hotel Stay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 bg-dark text-white">
+                <div class="card-body text-center d-flex flex-column">
+                    <img src="{% static 'images/tortoise.jpeg' %}" class="img-fluid rounded mb-3" style="max-height: 250px; object-fit: cover; width: 100%;" alt="Educational Visit">
+                    <h3 class="card-title">Educational Visit</h3>
+                    <p class="card-text flex-grow-1">Structured learning experiences with guided tours, workshops, and curriculum-linked activities. Perfect for schools and educational groups of all ages.</p>
+                    <div class="mt-auto">
+                        <h4 class="text-success mb-3">From £15 per student</h4>
+                        <a href="{% url '' %}" class="btn btn-success btn-lg w-100">Book Educational Visit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

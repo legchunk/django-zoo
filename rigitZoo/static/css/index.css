@@ -19,6 +19,11 @@
     object-fit: cover;
 }
 
+.carousel-caption {
+    color: black;
+    -webkit-text-stroke: 1px white;
+}
+
 #cards {
     margin: 100px;
 }

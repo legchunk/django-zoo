@@ -1,1 +1,72 @@
 {% extends 'pages/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mb-4">
+            <h1 class="display-5">Book Your Day Pass</h1>
+            <p class="lead">Experience our amazing animals and attractions for a day full of adventure</p>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-dark text-white shadow-lg mb-5">
+                <div class="card-header text-center py-3">
+                    <h3 class="mb-0"><i class="fas fa-ticket-alt me-2"></i>Day Pass Booking</h3>
+                </div>
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <img src="{% static 'images/zoo-entrance.jpg' %}" class="img-fluid rounded" style="max-height: 200px; object-fit: cover; width: 100%;" alt="Zoo Entrance">
+                    </div>
+                    
+                    <form action="{% url 'day' %}" method="POST" autocomplete="off">
+                        {% csrf_token %} 
+                        {{form|crispy}}
+                        
+                        <div class="mt-4 p-3 bg-secondary rounded">
+                            <h5 class="text-center mb-2">Day Pass Includes:</h5>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li><i class="fas fa-check text-success me-2"></i>Full zoo access</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Animal feeding experiences</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Educational shows</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Playground access</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4 p-3 bg-info rounded text-dark">
+                            <h6 class="text-center mb-2">Pricing:</h6>
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <strong>Adults:</strong><br>£25
+                                </div>
+                                <div class="col-4">
+                                    <strong>Children:</strong><br>£15
+                                </div>
+                                <div class="col-4">
+                                    <strong>Seniors:</strong><br>£20
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <p class="fs-4 fw-bold text-success mb-3">From £25 per person</p>
+                            <button type="submit" class="btn btn-success btn-lg w-100 py-3">
+                                <i class="fas fa-calendar-check me-2"></i>Book Day Pass
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <a href="{% url 'booking' %}" class="btn btn-outline-light">
+                            <i class="fas fa-arrow-left me-2"></i>Other booking options
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
