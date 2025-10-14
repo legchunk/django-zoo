@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import ZooUser, HotelBooking, DayBooking
+from .models import ZooUser, HotelBooking, DayBooking, Checkout
 from django.forms.widgets import PasswordInput, TextInput
 
 class LoginForm(AuthenticationForm):
@@ -97,8 +97,8 @@ class DayBookingForm(forms.ModelForm):
     class Meta:
         model = DayBooking
 
-        fields = ['day_booking_date','day_booking_adults',
-            'day_booking_children','day_booking_oap','day_total_cost','day_points']
+        fields = ['day_booking_date','day_booking_adults','day_booking_children',
+                  'day_booking_oap','day_total_cost','day_points']
 
         labels = {
             "day_booking_date": 'Date',
@@ -107,6 +107,29 @@ class DayBookingForm(forms.ModelForm):
             'day_booking_date': forms.DateInput(attrs={'type': 'date'}),
             'day_total_cost': forms.HiddenInput(),
             'day_points': forms.HiddenInput(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Checkout
+
+        fields = ['billing_name','billing_address','billing_postcode','billing_city',
+                  'card_num','card_expiry','card_cvv']
+        
+        labels = {
+            "billing_name": 'Full Name',
+            "billing_address": 'Address',
+            "billing_postcode": 'Postcode',
+            "billing_city": 'City',
+            "card_num": 'Card Number',
+            "card_cvv": 'CVV',
+        }
+
+        widgets = {
+            'card_expiry': forms.DateInput(attrs={'type': 'date'}),
         }
 
     def __init__(self, *args, **kwargs):

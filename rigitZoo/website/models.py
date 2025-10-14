@@ -30,3 +30,12 @@ class ZooUser(AbstractUser):
     phone = models.CharField(max_length=14)
     date_of_birth = models.DateField()
     full_name = models.CharField(max_length=100)
+
+class Checkout(models.Model):
+    billing_name = models.CharField(max_length=200)
+    billing_address = models.CharField(max_length=200)
+    billing_postcode = models.CharField(max_length=6)
+    billing_city = models.CharField(max_length=200)
+    card_num = models.CharField(max_length=16)
+    card_expiry = models.DateField()
+    card_cvv = models.CharField(max_length=4)

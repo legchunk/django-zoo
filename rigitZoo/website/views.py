@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 import requests
-from .forms import HotelBookingForm, DayBookingForm, LoginForm, CreateUserForm
+from .forms import HotelBookingForm, DayBookingForm, LoginForm, CreateUserForm, CheckoutForm
 
 def home(request):
     return render(request, 'pages/index.html')
@@ -15,42 +15,14 @@ def booking(request):
 def about(request):
     return render(request, 'pages/about.html')
 
+def ticket(request):
+    return render(request, 'pages/booking/ticket.html')
+
 def fireworks(request):
     return render(request, 'pages/events/fireworks.html')
 
 def santa(request):
     return render(request, 'pages/events/santa.html')
-
-def weather_data():
-    key = settings.MY_API_KEY
-
-    BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
-
-    city = "London"
-
-    url = BASE_URL + 'London' + "&appid=" + key
-
-    json_data = requests.get(url).json()
-
-    weather = json_data['weather'][0]['main']
-    temperature = int(json_data['main']['temp'] - 273.15)
-    min = int(json_data['main']['temp_min'] - 273.15)
-    max = int(json_data['main']['temp_max'] - 273.15)
-    icon = json_data['weather'][0]['icon']
-
-    data = {
-        'location': city,
-        'weather': weather,
-        "temperature": temperature,
-        "min": min,
-        "max": max,
-        "icon": icon
-    }
-    print(json_data)
-
-    context = {'data': data}
-
-    return context
 
 def register(request):
     form = CreateUserForm()
@@ -96,11 +68,14 @@ def user_logout(request):
 def booking_hotel(request):
     form = HotelBookingForm()
     if request.method == "POST":
-        if request.is_valid():
+        form = HotelBookingForm(request.POST)
+        if form.is_valid():
             updated_request = request.POST.copy()
             updated_request.update({'hotel_user_id_id': request.user})
 
             form = HotelBookingForm(updated_request)
+
+            print(form.errors)
 
             if form.is_valid():
                 obj = form.save(commit=False)
@@ -155,10 +130,21 @@ def booking_day(request):
             
             obj.save()
             
-            messages.success(request, "Day pass booked successfully!")
             return redirect('')
         else:
             messages.error(request, "There was a problem with your booking. Please try again.")
     
     context = {'form': form}
     return render(request, 'pages/booking/day.html', context=context)
+
+@login_required(login_url="login")
+def pay(request):
+    form = CheckoutForm()
+
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+
+            
+
+    return render(request, 'pages/booking/pay.html')
+    
