@@ -5,3 +5,5 @@ fontawesomefree
 crispy-bootstrap5
 requests
 django-credit-cards
+qrcode
+pillow

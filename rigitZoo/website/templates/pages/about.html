@@ -1,1 +1,62 @@
 {% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- About page content -->
+<div class="container about-page py-4">
+	<header class="mb-4">
+		<h1>About Our Zoo</h1>
+		<p class="lead">A brief introduction to our mission, history, and the animals we care for.</p>
+	</header>
+
+	<div class="row align-items-center mb-5">
+		<div class="col-md-7">
+			<p>
+				Founded in 1985, our zoo began as a small rescue and has grown into a regional center for conservation and animal care.
+				We provide species-appropriate habitats, daily enrichment, and individualized veterinary attention to ensure every animal thrives.
+			</p>
+			<p>
+				Working with universities and conservation organizations, we run breeding and reintroduction programs for at-risk local species,
+				and our staff lead research projects that support habitat restoration and long-term population monitoring.
+			</p>
+			<p>
+				Through guided tours, school partnerships, and community outreach, we aim to inspire visitors to support wildlife stewardship
+				and sustainable practices. Your visits and donations directly fund care, conservation, and education initiatives across the region.
+			</p>
+		</div>
+
+		<div class="col-md-5 text-center">
+			<figure>
+				<img src="{% static 'images/zoo-entrance.jpg' %}" alt="Zoo entrance" class="img-fluid rounded shadow-sm" />
+			</figure>
+		</div>
+	</div>
+
+	<hr />
+
+	<section class="gallery">
+		<h2>Gallery</h2>
+		<p class="text-muted">A few highlights from our collection.</p>
+		<div class="row">
+			<div class="col-6 col-md-4 mb-3">
+				<figure>
+					<img src="{% static 'images/lions.png' %}" alt="Lion" class="img-fluid rounded" />
+					<figcaption class="mt-1 small text-muted">Simba &amp; Nala</figcaption>
+				</figure>
+			</div>
+			<div class="col-6 col-md-4 mb-3">
+				<figure>
+					<img src="{% static 'images/elephant.jpg' %}" alt="Elephant" class="img-fluid rounded" />
+					<figcaption class="mt-1 small text-muted">Maya</figcaption>
+				</figure>
+			</div>
+			<div class="col-6 col-md-4 mb-3">
+				<figure>
+					<img src="{% static 'images/parrot.jpg' %}" alt="Parrot" class="img-fluid rounded" />
+					<figcaption class="mt-1 small text-muted">Rio</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 # Create your models here.
 class HotelBooking(models.Model):
@@ -39,3 +40,19 @@ class Checkout(models.Model):
     card_num = models.CharField(max_length=16)
     card_expiry = models.DateField()
     card_cvv = models.CharField(max_length=4)
+    # Add ticket relation to store associated Ticket (nullable, set to null if ticket deleted)
+    ticket = models.ForeignKey('Ticket', null=True, blank=True, on_delete=models.SET_NULL, related_name='checkouts')
+
+# New model: Ticket
+class Ticket(models.Model):
+	"""
+	Simple ticket record to store generated ticket codes (QR payloads).
+	"""
+	code = models.CharField(max_length=64, unique=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	valid = models.BooleanField(default=True)
+	# Associate ticket with a user when available
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='tickets')
+
+	def __str__(self):
+		return f"Ticket {self.code} ({'valid' if self.valid else 'invalid'})"

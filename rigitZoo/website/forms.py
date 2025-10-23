@@ -134,3 +134,15 @@ class CheckoutForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    def save(self, commit=True, ticket=None):
+        """
+        Save checkout and optionally attach a Ticket instance (or ticket code lookup).
+        Call as: form.save(ticket=ticket_instance)
+        """
+        checkout = super().save(commit=False)
+        if ticket is not None:
+            checkout.ticket = ticket
+        if commit:
+            checkout.save()
+        return checkout

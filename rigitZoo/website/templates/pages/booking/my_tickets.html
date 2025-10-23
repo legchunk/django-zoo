@@ -1,0 +1,51 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-12 text-center mb-4">
+			<h1 class="display-5">My Tickets</h1>
+			<p class="lead">All tickets associated with your account</p>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			{% if qr_items %}
+				<div class="list-group">
+					{% for item in qr_items %}
+						<div class="list-group-item bg-dark text-white d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center">
+								<img src="data:image/png;base64,{{ item.qr_b64 }}" alt="QR" style="height:64px; width:64px; object-fit:contain;" class="me-3 rounded bg-white p-1">
+								<div class="text-start">
+									<div><strong>Code:</strong> {{ item.ticket.code }}</div>
+									<div class="small text-white-50">Issued: {{ item.ticket.created_at|date:"Y-m-d H:i" }}</div>
+									<div class="small">
+										Status:
+										{% if item.ticket.valid %}
+											<span class="badge bg-success ms-1">Valid</span>
+										{% else %}
+											<span class="badge bg-danger ms-1">Invalid</span>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+							<div>
+								<a href="{% url 'ticket' item.ticket.code %}" class="btn btn-sm btn-success">View</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="alert alert-info">You have no tickets yet.</div>
+			{% endif %}
+
+			<div class="text-center mt-4">
+				<a href="{% url 'booking' %}" class="btn btn-outline-light">Back to booking</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

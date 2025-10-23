@@ -3,8 +3,25 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h2>
-Enter you payment info and stuff here (todo)
-</h2>
-<a href="{% url 'ticket' %}" class="btn btn-success btn-lg w-100 py-3"> <h1>Pay</h1> </a>
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card shadow-sm">
+				<div class="card-header">
+					<h3 class="mb-0">Payment details</h3>
+				</div>
+				<div class="card-body">
+					<form action="{% url 'pay' %}" method="post" autocomplete="off">
+						{% csrf_token %}
+						{{ form|crispy }}
+						<button type="submit" class="btn btn-success w-100 mt-3">
+							<i class="fas fa-credit-card me-2"></i>Pay &amp; Generate Ticket
+						</button>
+					</form>
+				</div>
+			</div>
+			<p class="text-muted small mt-2">This is a demo payment form — card details are not charged.</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
