@@ -19,8 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-MY_API_KEY = os.environ['WEATHER_API_KEY']
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-tq5nxc95c8-q)92pirctt5d^631#w_*7x^bt$33tnf#t95hn9$'
 
