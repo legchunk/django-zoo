@@ -21,6 +21,9 @@ def booking(request):
 def about(request):
     return render(request, 'pages/about.html')
 
+def education(request):
+    return render(request, 'pages/events/santa.html')
+
 def ticket(request):
     return render(request, 'pages/booking/ticket.html')
 

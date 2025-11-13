@@ -2,7 +2,110 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="content m-5">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner fw-bold">
+            <div class="carousel-item active">
+                <img src="{% static 'images/santa_event/banner.png' %}" class="d-block" alt="Santa's Workshop banner">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Santa's Workshop Experience</h1>
+                    <p class="fs-4">A festive family evening with penguins, polar bear talks, treats and a visit to Santa's cosy workshop</p>
+                    <a class="btn btn-success fs-5 w-25" href="{% url 'booking' %}">Get Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex flex-column align-items-center gap-4">
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'images/santa_event/workshop.png' %}" class="img-fluid rounded-start object-fit-cover" style="height: 200px; width: 100%;" alt="Santa's Workshop">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Santa's Workshop</h5>
+                                    <p class="card-text">Step inside Santa's workshop to meet elves, see toy-making demonstrations, and take photos with Santa himself in a cosy, festive setting.</p>
+                                </div>
+                                <p class="card-text"><small>Sessions throughout the day</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body text-end d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Penguin Encounters</h5>
+                                    <p class="card-text">Get close to our playful penguins with supervised encounters and learn about their Antarctic home and behaviours.</p>
+                                </div>
+                                <p class="card-text"><small>Meetings at 11:00 AM & 3:00 PM</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{% static 'images/santa_event/penguins.png' %}" class="img-fluid rounded-end object-fit-cover" style="height: 200px; width: 100%;" alt="Penguins">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'images/santa_event/polar-bears.png' %}" class="img-fluid rounded-start object-fit-cover" style="height: 200px; width: 100%;" alt="Polar bear">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Polar Bear Talks</h5>
+                                    <p class="card-text">Join our keepers for an informative talk about polar bears, conservation efforts and how climate impacts their wild habitats.</p>
+                                </div>
+                                <p class="card-text"><small>Talks at 1:00 PM</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card w-100 bg-dark text-white">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body text-end d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title">Festive Food & Treats</h5>
+                                    <p class="card-text">Warm up with seasonal favourites — mulled drinks, hot chocolate, mince pies and comfort food available from our vendors.</p>
+                                </div>
+                                <p class="card-text"><small>Available all day</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{% static 'images/santa_event/food.png' %}" class="img-fluid rounded-end object-fit-cover" style="height: 200px; width: 100%;" alt="Festive Food">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facts about North Pole / Antarctic animals -->
+                <div class="card w-100 bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Arctic & Antarctic Facts</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Penguins:</strong> Penguins are native to the Southern Hemisphere — most species live in and around Antarctica, adapted for swimming rather than flying.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Polar Bears:</strong> Polar bears live in the Arctic (North Pole region). They are powerful swimmers and rely on sea ice for hunting seals.</p>
+                            </div>
+                        </div>
+                        <p class="mb-0"><small>Learn more during our keeper sessions and encounters.</small></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
