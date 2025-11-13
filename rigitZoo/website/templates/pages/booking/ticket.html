@@ -46,7 +46,12 @@
                             <i class="fas fa-arrow-left me-2"></i>Other booking options
                         </a>
                         {% if ticket_code %}
-                            <a href="{% url 'ticket' ticket_code %}" class="btn btn-success ms-2">View / Share Link</a>
+                            <button type="button"
+                                    id="copy-share-link"
+                                    class="btn btn-success ms-2"
+                                    data-url="{% url 'ticket' ticket_code %}">
+                                <i class="fas fa-link me-2"></i>View / Share Link
+                            </button>
                         {% endif %}
                     </div>
                 </div>
@@ -54,4 +59,7 @@
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/copy_ticket.js' %}"></script>
+
 {% endblock %}
